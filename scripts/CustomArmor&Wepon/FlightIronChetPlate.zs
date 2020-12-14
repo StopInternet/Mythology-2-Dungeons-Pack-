@@ -1,0 +1,25 @@
+import mods.artisanworktables.builder.RecipeBuilder;
+import crafttweaker.item.IItemStack;
+import crafttweaker.item.IIngredient;
+
+
+val fly1 = <potion:xreliquary:flight_potion>.makePotionEffect(500, 0);
+
+val FICH = <minecraft:iron_chestplate>.withTag({ench: [{lvl: 1 as short, id: 31 as short}], Unbreakable: 1 as byte, HideFlags: 7, display: {Lore: ["§7All: §a-20%", "§6Bonus: Flight", "§9§lRARE CHESTPLATE"], Name: "§9§lFlight Iron Chestplate"}, AttributeModifiers: [{UUIDMost: -8472644879874767669 as long, UUIDLeast: -5933294770297422222 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.flyingSpeed", Operation: 1, Name: "generic.flyingSpeed"}, {UUIDMost: 6142312350848991281 as long, UUIDLeast: -7147324627531408165 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.maxHealth", Operation: 1, Name: "generic.maxHealth"}, {UUIDMost: 382722050608548315 as long, UUIDLeast: -8580887523130253312 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.followRange", Operation: 1, Name: "generic.followRange"}, {UUIDMost: 9005730313104607736 as long, UUIDLeast: -7329902313231198370 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.knockbackResistance", Operation: 1, Name: "generic.knockbackResistance"}, {UUIDMost: 41773674023111759 as long, UUIDLeast: -7955488319338080050 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.movementSpeed", Operation: 1, Name: "generic.movementSpeed"}, {UUIDMost: 3047479267238758549 as long, UUIDLeast: -5347817325839744264 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.attackDamage", Operation: 1, Name: "generic.attackDamage"}, {UUIDMost: -3735538577193022462 as long, UUIDLeast: -9220404739678244091 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.armor", Operation: 1, Name: "generic.armor"}, {UUIDMost: 5855529947493713953 as long, UUIDLeast: -5801074670168546920 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.reachDistance", Operation: 1, Name: "generic.reachDistance"}, {UUIDMost: 2899216945372678887 as long, UUIDLeast: -7139962932394927362 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.luck", Operation: 1, Name: "generic.luck"}, {UUIDMost: 9120053122279556103 as long, UUIDLeast: -5696259903215319389 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.armorToughness", Operation: 1, Name: "generic.armorToughness"}]});
+
+
+
+RecipeBuilder.get("engineer")
+  .setShaped([
+    [<xreliquary:mob_ingredient:5>, <minecraft:ghast_tear>, <xreliquary:mob_ingredient:5>],
+    [<minecraft:feather>, <minecraft:iron_chestplate>, <minecraft:feather>],
+    [<minecraft:feather>, null, <minecraft:feather>]])
+  .addOutput(<minecraft:iron_chestplate>.withTag({ench: [{lvl: 1 as short, id: 31 as short}], Unbreakable: 1 as byte, HideFlags: 7, display: {Lore: ["§7All: §a-20%", "§6Bonus: Flight", "§9§lRARE CHESTPLATE"], Name: "§9§lFlight Iron Chestplate"}, AttributeModifiers: [{UUIDMost: -8472644879874767669 as long, UUIDLeast: -5933294770297422222 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.flyingSpeed", Operation: 1, Name: "generic.flyingSpeed"}, {UUIDMost: 6142312350848991281 as long, UUIDLeast: -7147324627531408165 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.maxHealth", Operation: 1, Name: "generic.maxHealth"}, {UUIDMost: 382722050608548315 as long, UUIDLeast: -8580887523130253312 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.followRange", Operation: 1, Name: "generic.followRange"}, {UUIDMost: 9005730313104607736 as long, UUIDLeast: -7329902313231198370 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.knockbackResistance", Operation: 1, Name: "generic.knockbackResistance"}, {UUIDMost: 41773674023111759 as long, UUIDLeast: -7955488319338080050 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.movementSpeed", Operation: 1, Name: "generic.movementSpeed"}, {UUIDMost: 3047479267238758549 as long, UUIDLeast: -5347817325839744264 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.attackDamage", Operation: 1, Name: "generic.attackDamage"}, {UUIDMost: -3735538577193022462 as long, UUIDLeast: -9220404739678244091 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.armor", Operation: 1, Name: "generic.armor"}, {UUIDMost: 5855529947493713953 as long, UUIDLeast: -5801074670168546920 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.reachDistance", Operation: 1, Name: "generic.reachDistance"}, {UUIDMost: 2899216945372678887 as long, UUIDLeast: -7139962932394927362 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.luck", Operation: 1, Name: "generic.luck"}, {UUIDMost: 9120053122279556103 as long, UUIDLeast: -5696259903215319389 as long, Amount: -0.2, Slot: "chest", AttributeName: "generic.armorToughness", Operation: 1, Name: "generic.armorToughness"}]}))
+  .create();
+
+
+val FlightI_Set = mods.SetEffect.newSet()
+                                .setName("FlightI")
+                                .withChest(FICH)
+                                .addEffect(fly1);
+mods.SetEffect.register(FlightI_Set);
